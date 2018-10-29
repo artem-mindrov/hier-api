@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import sys, json, traceback
+import bisect, sys, json, traceback
 from collections import OrderedDict
 from StringIO import StringIO
 
@@ -81,8 +81,7 @@ class Node:
         if not node or node in self.children:
             return False
 
-        self.children.append(node)
-        self.children.sort()
+        bisect.insort(self.children, node)
         self._children_by_id[node.id()] = node
         node.parent = self
         node.set_depth(self._depth + 1)
