@@ -66,12 +66,7 @@ class Node:
         if idx == 0:
             return self.parent
 
-        pred = self.parent.children[idx - 1]
-
-        while pred.children:
-            pred = pred.children[len(pred.children) - 1]
-
-        return pred
+        return self.parent.children[idx - 1].last_preorder_child()
 
     def set_depth(self, new_depth):
         """Recursively updates the depth of this node's subtree"""
