@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import bisect, sys, json, traceback
+import sys, json, traceback
 from collections import OrderedDict
 from StringIO import StringIO
 
