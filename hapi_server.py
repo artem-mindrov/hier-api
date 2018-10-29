@@ -61,7 +61,7 @@ class Node:
         if not self.parent:
             return None
 
-        idx = self.parent.children.index(self)
+        idx = bisect.bisect_left(self.parent.children, self)
 
         if idx == 0:
             return self.parent
